@@ -35,7 +35,7 @@ import HomeManufacturerInfo from './components/basicinfo/ManufacturerInfo'
 import HomeDeviceRegister from './components/device/DeviceRegister'
 import HomeDeviceVersionInfo from './components/device/DeviceVersionInfo'
 export default {
-  name: 'Login',
+  name: 'Home',
   data(){
     return {
       titleArray:[

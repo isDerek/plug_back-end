@@ -13,6 +13,7 @@
     "element-ui": "^2.4.8",
     "es6-promise": "^4.2.5",
     "fastclick": "^1.0.6",
+    "vee-validate": "^2.1.0-beta.11",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
   },
@@ -43,7 +44,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console":0
+      "no-console": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"

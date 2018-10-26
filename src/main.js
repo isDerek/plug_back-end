@@ -5,13 +5,20 @@ import router from './router'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import fastClick from 'fastclick'
-import store from './store'
+import store from './store/index'
 import axios from 'axios'
+import Veevalidate from 'vee-validate'
+Vue.use(Veevalidate);
 Vue.use(Element,{size:'small',zIndex:3000});
 // 阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app')
 //全局拦截器
 axios.interceptors.request.use(function (config) {
   // console.log(store.state.user.token);
@@ -38,8 +45,4 @@ axios.interceptors.response.use(function (response) {
   return response
 })
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')
+

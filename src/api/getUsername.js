@@ -1,13 +1,11 @@
 import axios from 'axios'
 import {ERR_TYPE, PlugError} from '../utils/PlugError'
 import {msgId} from '../utils/toolFunc'
-export async function postUserLogin(params) {
-    const url = 'api/v1/postUserLogin'
+export async function getUsername(params) {
+    const url = 'api/v1/getUserName'
     let resp = await axios.get(url,{
         params: {
             username: params.username,
-            password: params.password,
-            confirmPassword: params.confirmPassword,
             msgId: msgId
         }
     })

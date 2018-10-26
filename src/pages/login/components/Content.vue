@@ -27,11 +27,11 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import UserRegister from './UserRegister'
+import Steps from './Steps'
 export default {
   name: 'Content',
   components:{
-    UserRegister
+    Steps
   },
   data() {
     return{
@@ -44,10 +44,11 @@ export default {
       userStatus:'getUserStatus'
     })
   },
+  
   methods:{
     userRegister(){
-        this.$alert(<user-register></user-register>, '用户注册', {
-          showConfirmButton: false,
+        this.$alert(<steps></steps>, '用户注册', {
+          showConfirmButton:false,
         });
       },
     forgetPassword(){

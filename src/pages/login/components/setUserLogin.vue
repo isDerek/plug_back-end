@@ -2,7 +2,13 @@
   <div class="setUserLogin">
     <div class="setUserLogin__username">
       <span class="setUserLogin__username_text">用户名：</span>
-      <span class="setUserLogin__username_tips">{{usernameNull? usernameNullTips : ''}}</span>
+      <span v-if="usernameExist" class="setUserLogin__username_tips">
+        <span class="setUserLogin__username_tips">{{usernameExist? usernameExistTips : ''}}</span>
+      </span>
+      <span v-else>
+        <span class="setUserLogin__username_tips">{{usernameError? usernameErrorTips : ''}}</span>
+        <span class="setUserLogin__username_tips">{{usernameNull? usernameNullTips : ''}}</span>
+      </span>
       <div class="setUserLogin__username_input">
         <el-input
         placeholder="请设置登录账户"
@@ -13,6 +19,7 @@
     </div>
     <div class="setUserLogin__password">
       <span class="setUserLogin__password_text">密码：</span>
+      <span class="setUserLogin__password_tips">{{passwordError? passwordErrorTips : ''}}</span>
       <span v-if="this.passwordDiffer&&this.passwordNull">
         <span class="setUserLogin__password_tips">{{passwordNull? passwordNullTips : ''}}</span>        
       </span>
@@ -45,14 +52,17 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex'
+import store from '../../../store'
 export default {
   name: 'setUserLogin',
-  beforeDestroy(){
-    this.passwordNull = false,
-    this.usernameNull = false,
-    this.confirmPasswordNull = false,
-    this.$emit('setUserLogin',this.username,this.password,this.confirmPassword)
+  created(){
+    //清空之前的用户名查询结果
+    store.state.user.userInfo.usernameExist = false
+  },
+  computed:{    
+      usernameExist: function(){
+        return store.state.user.userInfo.usernameExist
+      }
   },
   data(){
     return {
@@ -65,10 +75,11 @@ export default {
       usernameNullTips:'用户名不能为空',
       usernameErrorTips:'4到16位（字母，数字，下划线，减号）',
       passwordErrorTips:'密码不能含有非法字符，长度在4-10之间',
+      usernameExistTips:'用户名已存在',
+
     }
   },
-  computed:{
-  },
+  
   props:[
     'passwordDiffer',
     'passwordNull',
@@ -77,7 +88,9 @@ export default {
     'commitPassword',
     'commitUsername',
     'commitConfirmPassword',
-  ]
+    'usernameError',
+    'passwordError',
+  ],
 }
 </script>
 
