@@ -5,5 +5,9 @@ export const STATUS_EVENT = {
     LOGOUT_FAIL: 'logout_fail',
     REGISTER_USER: 'register_user',
     CHECK_USERNAME_SUCCESS:'check_username_success',
-    CHECK_USERNAME_FAIL:'check_username_fail'
+    CHECK_USERNAME_FAIL:'check_username_fail',
+    CREATE_MANUFACTURERINFO:'create_manufacturerInfo',
+    UPDATE_MANUFACTURERINFO:'update_manufacturerInfo',
+    DELETE_MANUFACTURERINFO:'delete_manufacturerInfo',
+    CHECK_ALL_MANUFACTURERINFO:'check_all_manufacturerInfo',
 }

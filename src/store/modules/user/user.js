@@ -35,6 +35,7 @@ const actions = {
             commit(STATUS_EVENT.LOGIN_FAIL)
         })
     },
+
     putUserLogout({commit},data){
         putUserLogout(data).then((res)=>{
             commit(STATUS_EVENT.LOGOUT_SUCESS, res)
@@ -42,6 +43,7 @@ const actions = {
             commit(STATUS_EVENT.LOGOUT_FAIL)
         })
     },
+
     postUserInfo({commit},data){
         return new Promise ((resovle,reject)=>{
             postUserInfo(data).then((res)=>{
@@ -52,6 +54,7 @@ const actions = {
             })
         })
     },
+
     getUsername({commit},data){
         return new Promise ((resovle,reject)=>{
             getUsername(data).then((res)=>{
@@ -62,9 +65,7 @@ const actions = {
                 reject()
             })
         })
-
-    }
-    
+    },
 }
 
 const mutations = {

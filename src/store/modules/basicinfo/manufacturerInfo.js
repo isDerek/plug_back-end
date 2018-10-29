@@ -1,93 +1,79 @@
+import { postManufacturerInfo } from '../../../api/postManufacturerInfo'
+import {STATUS_EVENT} from '../../mutation-types'
+import { getAllManufacturerInfo } from '../../../api/getAllManufacturerInfo'
+import { putManufacturerInfo } from '../../../api/putManufacturerInfo'
+import { deleteManufacturerInfo } from '../../../api/deleteManufacturerInfo'
+
 
 const state = {
-    manufacturerInfo: [
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '0',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '1',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '2',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '3',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '4',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '5',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '6',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '7',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '8',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },
-      {
-      registerDate: '2016-05-03',
-      manufacturerID: '9',
-      agencyID: '1234566789asdfaf',
-      notifyAddress: 'http://api.notify.address.com',
-      manufacturerName: '中山远大科技有限公司',
-      updateDate: '2018-10-16'
-      },]
+    manufacturerInfo: []
 }
 
 const actions = {
+    postManufacturerInfo({commit},data){
+        return new Promise((resolve,reject)=>{
+            postManufacturerInfo(data).then((res)=>{
+                commit(STATUS_EVENT.CREATE_MANUFACTURERINFO, res)
+                resolve();
+            })
+            .catch(()=>{
 
+                reject();
+            })
+        })
+    },
+
+    putManufacturerInfo({commit},data){
+        return new Promise((resolve,reject)=>{
+            putManufacturerInfo(data).then((res)=>{
+                commit(STATUS_EVENT.UPDATE_MANUFACTURERINFO, res)
+                resolve();
+            })
+            .catch(()=>{
+
+                reject();
+            })
+        })
+    },
+
+    deleteManufacturerInfo({commit},data){
+        return new Promise((resolve,reject)=>{
+            deleteManufacturerInfo(data).then((res)=>{
+                commit(STATUS_EVENT.DELETE_MANUFACTURERINFO, res)
+                resolve();
+            })
+            .catch(()=>{
+                reject();
+            })
+        })
+    },
+
+    getAllManufacturerInfo({commit},data){
+        getAllManufacturerInfo(data).then((res)=>{
+            commit(STATUS_EVENT.CHECK_ALL_MANUFACTURERINFO, res)
+        })
+        .catch(()=>{
+        })
+    },
 }
 
 const mutations = {
+    [STATUS_EVENT.CREATE_MANUFACTURERINFO](state, manufacturerInfo){
+        state.manufacturerInfo = Object.assign({}, state.manufacturerInfo, manufacturerInfo)
+    },
+
+    [STATUS_EVENT.UPDATE_MANUFACTURERINFO](state, manufacturerInfo){
+        
+        state.manufacturerInfo = Object.assign({}, state.manufacturerInfo, manufacturerInfo)
+    },
+
+    [STATUS_EVENT.DELETE_MANUFACTURERINFO](state, res){
+        console.log(res)
+    },
+
+    [STATUS_EVENT.CHECK_ALL_MANUFACTURERINFO](state, allManufacturerInfo){
+        state.manufacturerInfo = allManufacturerInfo
+    }
     
 }
 export default {
