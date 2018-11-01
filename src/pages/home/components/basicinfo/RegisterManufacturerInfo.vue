@@ -54,7 +54,7 @@ export default {
           } else {
             callback()
           }
-        }, 1000);       
+        }, 100);       
       };
       return {
         ruleForm: {
@@ -85,7 +85,7 @@ export default {
                 manufacturerID : this.ruleForm.manufacturerID
             }
             store.dispatch('manufacturerInfo/postManufacturerInfo',params).then(()=>{
-                location.reload();
+              this.$emit('dialogCancel')
             }).catch(()=>{
                 this.$message({
                     message: '警告哦，厂商名称或厂商编号重复',

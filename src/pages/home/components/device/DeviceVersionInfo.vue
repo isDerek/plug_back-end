@@ -35,11 +35,6 @@
           width="100">
         </el-table-column>
         <el-table-column
-          prop="manufacturerID"
-          label="厂商编号"
-          width="100">
-        </el-table-column>
-        <el-table-column
           prop="versionNumber"
           label="版本号"
           width="200">
@@ -118,16 +113,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
   .deviceVersionInfo
-    padding-top .2rem
     width 100%
     height 100%
     display flex
     flex-direction column
     &__header
       width 100%
+      height 10%
       display flex
       flex-direction row
-      padding-bottom .2rem
+      justify-content center
+      align-items center
       &__register
         padding-left .1rem
       &__ID
@@ -151,5 +147,5 @@ export default {
           padding-right .2rem
     &__Table
       display flex
-      height 100%
+      height 90%
 </style>

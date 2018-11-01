@@ -81,10 +81,13 @@ export default {
         background-color #ededed
       &__right
         width 100%
+        &__tabs
+          height 10%
         &__bread-crumb
-          padding-bottom .3rem
+          height 5%
+          // padding-bottom .3rem
           border-bottom .02rem solid #e4e6ec
         &__complate
-          height 87%
+          height 85%
           width 100%
 </style>

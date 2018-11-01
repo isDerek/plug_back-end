@@ -10,4 +10,9 @@ export const STATUS_EVENT = {
     UPDATE_MANUFACTURERINFO:'update_manufacturerInfo',
     DELETE_MANUFACTURERINFO:'delete_manufacturerInfo',
     CHECK_ALL_MANUFACTURERINFO:'check_all_manufacturerInfo',
+    FILTER_ALL_MANUFACTURERINFO_SUCCESS:'filter_all_manufacturerInfo_success',
+    FILTER_ALL_MANUFACTURERINFO_FAIL:'filter_all_manufacturerInfo_fail',
+    CREATE_DEVICE:'create_device',
+    CHECK_ALL_DEVICEINFO:'check_all_deviceInfo',
+    UPDATE_DEVICEINFO:'update_deviceInfo'
 }

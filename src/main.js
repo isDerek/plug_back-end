@@ -7,8 +7,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import fastClick from 'fastclick'
 import store from './store/index'
 import axios from 'axios'
-import Veevalidate from 'vee-validate'
-Vue.use(Veevalidate);
+
+
 Vue.use(Element,{size:'small',zIndex:3000});
 // 阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false

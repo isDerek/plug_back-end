@@ -1,27 +1,33 @@
 <template>
   <div class="manufacturerInfo">
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%"
+      >
+      <RegisterManufacturerInfo v-if="registerVisible" v-on:dialogCancel="dialogCancel"/>
+      <EditManufacturerInfo
+      v-if="editVisible" 
+      v-on:dialogCancel="dialogCancel"
+      :order_id = "order_id"
+      :manufacturerName = "manufacturerName"
+      :notifyAddress = "notifyAddress"
+      />
+    </el-dialog>
+
     <div class="manufacturerInfo__header">
       <div class="manufacturerInfo__header__register">
-        <el-button type="primary" @click="registerManufacturerInfo">+ 注册厂商信息</el-button>
+        <el-button type="primary" @click="registerDialog">+ 注册厂商信息</el-button>
       </div>
       <div class="manufacturerInfo__header__ID">
         <span class="manufacturerInfo__header__ID_text">厂商 ID</span>
-        <el-input v-model="inputID" placeholder="请输入内容" class="manufacturerInfo__header__ID_input"></el-input>
+        <el-input v-model="inputID" placeholder="请输入厂商编号" class="manufacturerInfo__header__ID_input"></el-input>
       </div>
-      <div class="manufacturerInfo__header__Date">
-        <span class="manufacturerInfo__header__Date_text">厂商注册日期</span>
-        <div class="block manufacturerInfo__header__Date_content">
-          {{timeValue}}
-          <el-date-picker
-            v-model="timeValue"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期">
-          </el-date-picker>
-        </div>
-        <el-button icon="el-icon-search" circle @click="filterHandler"></el-button>      
+      <div class="manufacturerInfo__header__Name">
+        <span class="manufacturerInfo__header__Name_text">厂商名称</span>
+        <el-input v-model="inputName" placeholder="请输入厂商名称" class="manufacturerInfo__header__Name_input"></el-input>
       </div>
+      <el-button icon="el-icon-search" circle @click="filterHandler"></el-button>      
     </div>
     <div class="manufacturerInfo__Table">
       <el-table
@@ -31,6 +37,7 @@
         height=100%>
         <el-table-column
           fixed
+          sortable
           prop="order_id"
           label="厂商编号"
           width="120">
@@ -51,11 +58,13 @@
           width="180">
         </el-table-column>
         <el-table-column
+          sortable
           prop="create_time"
           label="注册日期"
           width="150">
         </el-table-column>
         <el-table-column
+          sortable
           prop="update_time"
           label="最新更新日期"
           width="150">
@@ -65,7 +74,7 @@
           label="操作"
           width="120">
           <template slot-scope="scope">
-            <el-button type="text" size="small" @click="editManufacturerInfo">编辑</el-button>
+            <el-button type="text" size="small" @click="editDialog(scope.row)">编辑</el-button>
             <el-button
               @click.native.prevent="deleteRow(scope.$index, manufacturerInfo)"
               type="text"
@@ -76,7 +85,6 @@
         </el-table-column>
       </el-table>
     </div>
-    
   </div>
 </template>
 
@@ -92,8 +100,11 @@ export default {
   },
   data() {
       return {
-        timeValue: '',  
-        inputID:''   
+        inputName: '',  
+        inputID:'',
+        dialogVisible: false,
+        editVisible: false,
+        registerVisible: false,   
       }
     },
     // 渲染页面前，向服务器加载数据
@@ -106,28 +117,35 @@ export default {
       })
     },
     methods: {
+      editDialog(row) {
+        this.order_id = row.order_id;
+        this.manufacturerName = row.manufacturer_name;
+        this.notifyAddress= row.notify_address;
+        this.registerVisible = false;
+        this.dialogVisible = true;
+        this.editVisible = true;
+      },
+      registerDialog() {
+        this.editVisible = false;
+        this.dialogVisible = true;
+        this.registerVisible = true;
+      },
+      dialogCancel() {
+        this.editVisible = false;
+        this.registerVisible = false;
+        this.dialogVisible = false;
+      },
       deleteRow(index, rows) {
-        console.log(rows[index])
         this.$store.dispatch('manufacturerInfo/deleteManufacturerInfo',rows[index])
         rows.splice(index, 1);
-       
-        
       },
-      filterHandler(value, row, column){
-        console.log(column);
-        const property = column['manufacturerID'];
-        return row[property] === value;
+      filterHandler(){
+        let params = {
+          manufacturerName : this.inputName,
+          manufacturerID : this.inputID
+        }
+        this.$store.dispatch('manufacturerInfo/getFilterManufacturerInfo',params)
       },
-      editManufacturerInfo(){
-        this.$alert(<EditManufacturerInfo/>, '编辑厂商信息', {
-          showConfirmButton:false,
-        });        
-      },
-      registerManufacturerInfo(){
-        this.$alert(<RegisterManufacturerInfo/>, '注册厂商信息', {
-          showConfirmButton:false,
-        });
-      }
     }
 };
 </script>
@@ -140,7 +158,7 @@ export default {
     display flex
     flex-direction column
     &__header
-      height 20% 
+      height 10% 
       width 100%
       display flex
       flex-direction row
@@ -157,17 +175,16 @@ export default {
           padding-right .2rem
         &_input
           width 50%
-      &__Date
+      &__Name
         padding-left .2rem
-        width 50%
+        padding-right .2rem
+        width 30%
         display flex
         justify-content flex-start
         align-items center
         &_text
-          padding-right .2rem
-        &_content
-          padding-right .2rem
+          width 30%
     &__Table
       display flex
-      height 80%
+      height 90%
 </style>
