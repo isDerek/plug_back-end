@@ -99,7 +99,7 @@ export default {
             versionID: this.ruleForm.versionID
           };
           store
-            .dispatch("deviceRegister/postDeviceInfo", params)
+            .dispatch("deviceRegister/postDeviceRegisterInfo", params)
             .then(() => {
               this.$emit('dialogCancel')
             })

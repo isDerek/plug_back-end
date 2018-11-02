@@ -12,7 +12,10 @@ export const STATUS_EVENT = {
     CHECK_ALL_MANUFACTURERINFO:'check_all_manufacturerInfo',
     FILTER_ALL_MANUFACTURERINFO_SUCCESS:'filter_all_manufacturerInfo_success',
     FILTER_ALL_MANUFACTURERINFO_FAIL:'filter_all_manufacturerInfo_fail',
-    CREATE_DEVICE:'create_device',
-    CHECK_ALL_DEVICEINFO:'check_all_deviceInfo',
-    UPDATE_DEVICEINFO:'update_deviceInfo'
+    CREATE_DEVICE_REGISTER:'create_device_register',
+    CHECK_ALL_DEVICEINFO_REGISTER:'check_all_deviceInfo_register',
+    UPDATE_DEVICEINFO_REGISTER:'update_deviceInfo_register',
+    FILTER_ALL_DEVICEINFO_REGISTER_SUCCESS:'filter_all_deviceInfo_register_success',
+    FILTER_ALL_DEVICEINFO_REGISTER_FAIL:'filter_all_deviceInfo_register_fail',
+    DELETE_DEVICEINFO_REGISTER:'delete_deviceInfo_register',
 }

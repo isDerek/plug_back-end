@@ -24,22 +24,13 @@
       </div>
       <div class="deviceRegister__header__ID">
         <span class="deviceRegister__header__ID_text">设备 ID</span>
-        <el-input v-model="inputID" placeholder="请输入内容" class="deviceRegister__header__ID_input"></el-input>
+        <el-input v-model="inputDID" placeholder="请输入内容" class="deviceRegister__header__ID_input"></el-input>
       </div>
-      <div class="deviceRegister__header__Date">
-        <span class="deviceRegister__header__Date_text">设备注册日期</span>
-        <div class="block deviceRegister__header__Date_content">
-          <el-date-picker
-            v-model="timeValue"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期">
-          </el-date-picker>
-        </div>
-        <el-button icon="el-icon-search" circle @click="filterHandler"></el-button>      
+      <div class="deviceRegister__header__Name">
+        <span class="deviceRegister__header__Name_text">厂商 ID</span>
+        <el-input v-model="inputMID" placeholder="请输入厂商名称" class="deviceRegister__header__Name_input"></el-input>
       </div>
-      
+      <el-button icon="el-icon-search" circle @click="filterHandler"></el-button>      
     </div>
     <div class="deviceRegister__Table">
       <el-table
@@ -105,8 +96,8 @@
 
 <script>
 import { mapState } from "vuex";
-import DeviceRegisterTmp from "./DeviceRegisterTmp";
-import EditDeviceInfo from "./EditDeviceInfo";
+import DeviceRegisterTmp from "./DeviceRegisterTmp"
+import EditDeviceInfo from "./EditDeviceInfo"
 export default {
   name: "DeviceRegister",
   components: {
@@ -114,12 +105,13 @@ export default {
     EditDeviceInfo
   },
   created() {
-    this.$store.dispatch("deviceRegister/getAllDeviceInfo");
+    this.$store.dispatch("deviceRegister/getAllDeviceRegisterInfo");
   },
   data() {
     return {
       timeValue: "",
-      inputID: "",
+      inputDID: "",
+      inputMID: "",
       dialogVisible: false,
       editVisible: false,
       registerVisible: false,
@@ -155,12 +147,20 @@ export default {
       this.dialogVisible = false;
     },
     deleteRow(index, rows) {
-      rows.splice(index, 1);
+      this.$store.dispatch('deviceRegister/deleteDeviceRegisterInfo',rows[index])
+      .then(()=>{
+        rows.splice(index, 1)
+      }).catch(()=>{
+
+      })
+      
     },
-    filterHandler(value, row, column) {
-      console.log(column);
-      const property = column["manufacturerID"];
-      return row[property] === value;
+    filterHandler() {
+        let params = {
+          manufacturerID : this.inputMID,
+          deviceID : this.inputDID
+        }
+        this.$store.dispatch('deviceRegister/getFilterDeviceRegisterInfo',params)
     }
   }
 };
@@ -168,59 +168,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-.deviceRegister {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  &__header {
+.deviceRegister 
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  &__header 
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 10%;
-
-    &__register {
-      padding-left: 0.1rem;
-    }
-
-    &__ID {
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row
+    height: 10%
+    &__register 
+      padding-left: 0.1rem
+    &__ID 
       width: 30%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-      &_text {
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      &_text 
         padding-right: 0.2rem;
-      }
-
-      &_input {
+      &_input 
         width: 50%;
-      }
-    }
-
-    &__Date {
-      padding-left: 0.2rem;
-      width: 50%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      &_text {
-        padding-right: 0.2rem;
-      }
-
-      &_content {
-        padding-right: 0.2rem;
-      }
-    }
-  }
-
-  &__Table {
+    &__Name
+      padding-left .2rem
+      padding-right .2rem
+      width 30%
+      display flex
+      justify-content flex-start
+      align-items center
+      &_text
+        width 30%
+  &__Table 
     display: flex;
     height: 90%;
-  }
-}
 </style>

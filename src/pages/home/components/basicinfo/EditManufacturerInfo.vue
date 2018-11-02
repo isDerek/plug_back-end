@@ -59,7 +59,7 @@ export default {
         } else {
           callback();
         }
-      }, 1000);
+      }, 100);
     };
     return {
       ruleForm: {

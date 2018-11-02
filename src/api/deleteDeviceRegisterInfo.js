@@ -1,11 +1,11 @@
 import axios from 'axios'
 import {ERR_TYPE, PlugError} from '../utils/PlugError'
 import {msgId} from '../utils/toolFunc'
-export async function deleteManufacturerInfo(params) {
-    const url = 'api/v1/deleteManufacturerInfo'
+export async function deleteDeviceRegisterInfo(params) {
+    const url = 'api/v1/deleteDeviceRegisterInfo'
     let resp = await axios.get(url,{
         params: {
-            manufacturerID: params.order_id,
+            deviceID: params.device_id,
             msgId: msgId
         }
     })

@@ -137,7 +137,11 @@ export default {
       },
       deleteRow(index, rows) {
         this.$store.dispatch('manufacturerInfo/deleteManufacturerInfo',rows[index])
-        rows.splice(index, 1);
+        .then(()=>{
+        rows.splice(index, 1)
+      }).catch(()=>{
+
+      })
       },
       filterHandler(){
         let params = {

@@ -119,7 +119,7 @@ export default {
             manufacturerID: this.ruleForm.manufacturerID
           };
           store
-            .dispatch("deviceRegister/putDeviceInfo", params)
+            .dispatch("deviceRegister/putDeviceRegisterInfo", params)
             .then(() => {
               this.$emit('dialogCancel')
             })

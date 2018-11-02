@@ -1,16 +1,18 @@
-import { postDeviceInfo } from '../../../api/postDeviceInfo'
+import { postDeviceRegisterInfo } from '../../../api/postDeviceRegisterInfo'
 import { STATUS_EVENT } from '../../mutation-types'
-import { getAllDeviceInfo } from '../../../api/getAllDeviceInfo'
-import { putDeviceInfo } from '../../../api/putDeviceInfo'
+import { getAllDeviceRegisterInfo } from '../../../api/getAllDeviceRegisterInfo'
+import { putDeviceRegisterInfo } from '../../../api/putDeviceRegisterInfo'
+import { getFilterDeviceRegisterInfo } from '../../../api/getFilterDeviceRegisterInfo'
+import { deleteDeviceRegisterInfo } from '../../../api/deleteDeviceRegisterInfo'
 const state = {
     deviceRegister: []
 }
 
 const actions = {
-    postDeviceInfo({ commit }, data) {
+    postDeviceRegisterInfo({ commit }, data) {
         return new Promise((resolve, reject) => {
-            postDeviceInfo(data).then((res) => {
-                commit(STATUS_EVENT.CREATE_DEVICE, res)
+            postDeviceRegisterInfo(data).then((res) => {
+                commit(STATUS_EVENT.CREATE_DEVICE_REGISTER, res)
                 resolve()
             })
                 .catch(() => {
@@ -20,40 +22,74 @@ const actions = {
 
     },
 
-    getAllDeviceInfo({ commit }, data) {
-        getAllDeviceInfo(data).then((res) => {
-            commit(STATUS_EVENT.CHECK_ALL_DEVICEINFO, res)
+    getAllDeviceRegisterInfo({ commit }, data) {
+        getAllDeviceRegisterInfo(data).then((res) => {
+            commit(STATUS_EVENT.CHECK_ALL_DEVICEINFO_REGISTER, res)
         })
             .catch(() => {
 
             })
     },
 
-    putDeviceInfo({ commit }, data) {
+    putDeviceRegisterInfo({ commit }, data) {
         return new Promise((resolve, reject) => {
-            putDeviceInfo(data).then((res) => {
-                commit(STATUS_EVENT.UPDATE_DEVICEINFO, res)
+            putDeviceRegisterInfo(data).then((res) => {
+                commit(STATUS_EVENT.UPDATE_DEVICEINFO_REGISTER, res)
                 resolve()
             })
                 .catch(() => {
                     reject()
                 })
         })
-    }
+    },
+
+    getFilterDeviceRegisterInfo({ commit }, data) {
+        getFilterDeviceRegisterInfo(data).then((res) => {
+            commit(STATUS_EVENT.FILTER_ALL_DEVICEINFO_REGISTER_SUCCESS, res)
+        })
+            .catch(() => {
+                commit(STATUS_EVENT.FILTER_ALL_DEVICEINFO_REGISTER_FAIL)
+            })
+    },
+
+    deleteDeviceRegisterInfo({ commit }, data) {
+        return new Promise((resolve, reject) => {
+            deleteDeviceRegisterInfo(data).then((res) => {
+                commit(STATUS_EVENT.DELETE_DEVICEINFO_REGISTER, res)
+                resolve();
+            })
+                .catch(() => {
+                    reject();
+                })
+        })
+    },
 }
 
 const mutations = {
-    [STATUS_EVENT.CREATE_DEVICE](state, data) {
+    [STATUS_EVENT.CREATE_DEVICE_REGISTER](state, data) {
         state.deviceRegister = Object.assign([], state.deviceRegister, data)
     },
 
-    [STATUS_EVENT.CHECK_ALL_DEVICEINFO](state, data) {
+    [STATUS_EVENT.CHECK_ALL_DEVICEINFO_REGISTER](state, data) {
         state.deviceRegister = data
     },
 
-    [STATUS_EVENT.UPDATE_DEVICEINFO](state, data) {
+    [STATUS_EVENT.UPDATE_DEVICEINFO_REGISTER](state, data) {
         state.deviceRegister = Object.assign([], state.deviceRegister, data)
-    }
+    },
+
+    [STATUS_EVENT.FILTER_ALL_DEVICEINFO_REGISTER_SUCCESS](state, data) {
+        state.deviceRegister = data
+    },
+
+    [STATUS_EVENT.FILTER_ALL_DEVICEINFO_REGISTER_FAIL](state) {
+        state.deviceRegister = []
+    },
+
+    [STATUS_EVENT.DELETE_DEVICEINFO_REGISTER](state, res) {
+        // 不进行任何操作，数据已经从数据库删除，并且在前端页面已经删除该行
+        console.log(res)
+    },
 }
 export default {
     namespaced: true,

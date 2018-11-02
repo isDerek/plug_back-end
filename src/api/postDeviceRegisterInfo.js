@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {ERR_TYPE, PlugError} from '../utils/PlugError'
 import {msgId} from '../utils/toolFunc'
-export async function postDeviceInfo(params) {
-    const url = 'api/v1/postDeviceInfo'
+export async function postDeviceRegisterInfo(params) {
+    const url = 'api/v1/postDeviceRegisterInfo'
     let resp = await axios.get(url,{
         params: {
             deviceID: params.deviceID,
