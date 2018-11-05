@@ -32,12 +32,6 @@ axios.interceptors.response.use(function (response) {
 
   //未授权重新登录获取 token
   // console.log(res)
-  // if(res.msg.username){
-  //   store.state.user.userInfo.usernameErrorFlag=true
-  // }
-  // if(res.msg.password){
-  //   store.state.user.userInfo.passwordErrorFlag=true
-  // }
   // if(res.data.respCode === 403){
   //   store.commit('record/logout')
   //   store.dispatch('user/logout', {userId: store.state.user.userInfo.userId})

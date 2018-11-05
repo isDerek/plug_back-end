@@ -41,7 +41,8 @@
         <el-table-column
           prop="device_id"
           label="设备编号"
-          width="100">
+          width="100"
+          >
         </el-table-column>
         <el-table-column
           prop="version_id"
