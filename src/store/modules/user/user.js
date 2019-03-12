@@ -45,10 +45,10 @@ const actions = {
     },
 
     postUserInfo({commit},data){
-        return new Promise ((resovle,reject)=>{
+        return new Promise ((resolve,reject)=>{
             postUserInfo(data).then((res)=>{
                 commit(STATUS_EVENT.REGISTER_USER, res)
-                resovle()
+                resolve()
             }).catch(()=>{
                 reject()
             })

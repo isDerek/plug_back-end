@@ -39,17 +39,20 @@
         style="width: 100%;height: 100%"
         height=100%>
         <el-table-column
+          sortable
           prop="device_id"
           label="设备编号"
           width="100"
           >
         </el-table-column>
         <el-table-column
+          sortable
           prop="version_id"
           label="设备版本编号"
           width="150">
         </el-table-column>
         <el-table-column
+          sortable
           prop="manufacturer_id"
           label="厂商编号"
           width="100">

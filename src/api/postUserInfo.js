@@ -2,7 +2,7 @@ import axios from 'axios'
 import {ERR_TYPE, PlugError} from '../utils/PlugError'
 import {msgId} from '../utils/toolFunc'
 export async function postUserInfo(params) {
-    const url = 'api/v1/postUserInfo'
+    const url = '/api/v1/postUserInfo'
     let resp = await axios.get(url,{
         params: {
             username: params.username,

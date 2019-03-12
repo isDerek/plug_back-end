@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" >
     <div class="content__user">
       <p class="content__user_title">共享插座后台管控系统</p>
       <div class="content__user_form">
@@ -38,7 +38,6 @@
 <script>
 import {mapGetters} from 'vuex'
 import Steps from './Steps'
-// import { getUserLogin } from '../../../api/getUserLogin';
 export default {
   name: 'Content',
   components:{
@@ -79,8 +78,6 @@ export default {
       ccode = ccode.toUpperCase()
       if (vcode !== ccode) {
         this.$message.error('Please enter the correct verification code!')
-        // this.$set(this.loginInfo, 'vcode', '')
-        // this.$set(this.loginInfo, 'password', '')
       } else {
         this.getUserLogin();
       }

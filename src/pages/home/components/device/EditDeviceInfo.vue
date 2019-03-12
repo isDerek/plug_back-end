@@ -125,7 +125,7 @@ export default {
             })
             .catch(() => {
               this.$message({
-                message: "警告哦，设备编号没找到",
+                message: "警告哦，厂商编号不存在",
                 type: "warning"
               });
             });
