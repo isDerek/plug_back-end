@@ -6,9 +6,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxxxxxxxxxx',
       tag: '家'
     },
     {
@@ -17,9 +17,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -28,9 +28,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -39,9 +39,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -50,9 +50,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -61,9 +61,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -72,9 +72,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -83,9 +83,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '深圳市南山区西丽镇同沙路 168 号凯达尔中心大厦 2 号楼 13F',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -94,9 +94,9 @@ const state = {
       deviceIP: '192.168.1.123',
       deviceMAC: '000102030405',
       deviceTimer: '365天24小时60分60秒',
-      vendor: '中山远大科技有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '上海市普陀区金沙江路 1517 弄',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -105,9 +105,9 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
+      vendor: 'xxxx有限公司',
       name: '王小虎',
-      deviceAddress: '上海市普陀区金沙江路 1519 弄',
+      deviceAddress: 'xxxx',
       tag: '家'
     },
     {
@@ -117,8 +117,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -128,8 +128,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -139,8 +139,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -150,8 +150,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -161,8 +161,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -172,8 +172,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -183,8 +183,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '大联大商贸（深圳）有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     },
     {
@@ -194,8 +194,8 @@ const state = {
       deviceIP: '192.168.1.1',
       deviceMAC: '000102030405',
       deviceTimer: '1天',
-      vendor: '中山远大科技有限公司',
-      deviceAddress: '上海市普陀区金沙江路 1516 弄',
+      vendor: 'xxxx有限公司',
+      deviceAddress: 'xxxx',
       tag: '公司'
     }
   ],
