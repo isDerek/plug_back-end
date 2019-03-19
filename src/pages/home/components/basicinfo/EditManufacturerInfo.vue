@@ -1,19 +1,47 @@
 <template>
   <div class="registerManufacturerInfo">
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
-        <el-form-item label="厂商名称" prop="manufacturerName">
-            <el-input v-model="ruleForm.manufacturerName" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="厂商编号" prop="manufacturerID">
-            <el-input v-model.number="ruleForm.manufacturerID" autocomplete="off" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="推送地址" prop="notifyAddress">
-            <el-input v-model="ruleForm.notifyAddress" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item> 
-            <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-            <el-button @click="resetForm">重置</el-button>
-        </el-form-item>
+    <el-form
+      :model="ruleForm"
+      status-icon
+      :rules="rules"
+      ref="ruleForm"
+      label-width="100px"
+    >
+      <el-form-item
+        label="厂商名称"
+        prop="manufacturerName"
+      >
+        <el-input
+          v-model="ruleForm.manufacturerName"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="厂商编号"
+        prop="manufacturerID"
+      >
+        <el-input
+          v-model.number="ruleForm.manufacturerID"
+          autocomplete="off"
+          disabled
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="推送地址"
+        prop="notifyAddress"
+      >
+        <el-input
+          v-model="ruleForm.notifyAddress"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button
+          type="primary"
+          @click="submitForm('ruleForm')"
+        >提交</el-button>
+        <el-button @click="resetForm">重置</el-button>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -27,8 +55,8 @@ export default {
     "order_id",
     'manufacturerName',
     'notifyAddress'
-    ],
-  data() {
+  ],
+  data () {
     var checkManufacturerInfo = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("厂商名称不能为空"));
@@ -52,14 +80,16 @@ export default {
     var checkManufacturerID = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("厂商编号不能为空"));
+      } else {
+        callback();
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          callback();
-        }
-      }, 100);
+      // setTimeout(() => {
+      //   if (!Number.isInteger(value)) {
+      //     callback(new Error("请输入数字值"));
+      //   } else {
+      //     callback();
+      //   }
+      // }, 100);
     };
     return {
       ruleForm: {
@@ -77,19 +107,19 @@ export default {
     };
   },
   watch: {
-    order_id(){
+    order_id () {
       this.ruleForm.manufacturerID = this.order_id
       this.ruleForm.manufacturerName = this.manufacturerName
       this.ruleForm.notifyAddress = this.notifyAddress
     }
   },
-  created(){
+  created () {
     this.ruleForm.manufacturerName = this.manufacturerName
     this.ruleForm.manufacturerID = this.order_id
     this.ruleForm.notifyAddress = this.notifyAddress
   },
   methods: {
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let params = {
@@ -113,7 +143,7 @@ export default {
         }
       });
     },
-    resetForm() {
+    resetForm () {
       this.ruleForm.manufacturerName = ''
       this.ruleForm.notifyAddress = ''
     }
