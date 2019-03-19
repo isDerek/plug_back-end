@@ -1,64 +1,67 @@
 <template>
   <div class="deviceStatus">
     <el-table
-    border
-    :data="tableData"
-    style="width: 100%;height:90%"
+      border
+      :data="tableData"
+      style="width: 100%;height:90%"
     >
 
       <el-table-column
-        prop="deviceID"
+        prop="device_id"
         label="设备 ID"
         sortable
         width="150"
       >
       </el-table-column>
       <el-table-column
-        prop="deviceIP"
+        prop="ip_address"
         label="IP 地址"
-        width="150"   
+        width="150"
       >
       </el-table-column>
       <el-table-column
-        prop="deviceMAC"
+        prop="mac_id"
         label="MAC 地址"
         width="150"
       >
       </el-table-column>
       <el-table-column
-        prop="vendor"
+        prop="vendor_id"
         label="运营商"
         sortable
         width="250"
       >
       </el-table-column>
       <el-table-column
-        prop="date"
+        prop="time_start"
         label="设备开始运行时间"
-        sortable = 'custom'
+        sortable='custom'
         width="180"
       >
       </el-table-column>
       <el-table-column
-        prop="deviceTimer"
+        prop="time_run"
         label="设备已运行时间"
-        width="150">
+        width="150"
+      >
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
         prop="tag"
         label="标签"
         width="120"
         :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]"
         :filter-method="filterTag"
-        filter-placement="bottom-end">
-          <template slot-scope="scope">
+        filter-placement="bottom-end"
+      >
+        <template slot-scope="scope">
           <el-tag
             :type="scope.row.tag === '家' ? 'primary' : 'success'"
-            disable-transitions>{{scope.row.tag}}</el-tag>
-          </template>
-      </el-table-column>
+            disable-transitions
+          >{{scope.row.tag}}</el-tag>
+        </template>
+      </el-table-column> -->
     </el-table>
-    <pagination/>
+    <pagination />
   </div>
 </template>
 
@@ -70,10 +73,10 @@ export default {
   components: {
     Pagination
   },
-  created(){
-    this.$store.dispatch('deviceStatus/')
+  created () {
+    this.$store.dispatch('deviceStatus/getAllDeviceStatusInfo')
   },
-  data() {
+  data () {
     return {};
   },
   computed: {
@@ -82,10 +85,10 @@ export default {
     })
   },
   methods: {
-    filterTag(value, row) {
+    filterTag (value, row) {
       return row.tag === value;
     },
-    filterHandler(value, row, column) {
+    filterHandler (value, row, column) {
       // console.log(this.$store.state.device.deviceStatus);
       // let deviceStatusFilter = this.$store.state.device.deviceStatus.filter((value)=>{
       //   return this.$store.state.device.deviceStatus;
