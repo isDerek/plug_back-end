@@ -10,7 +10,6 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history', //取消默认的 hash 模式 #
-  base: './',
   routes: [
     { path: '/user/forgetpw', name: 'forgetpw', component: ForgetPW },
     { path: '/login', name: 'login', component: Login },
