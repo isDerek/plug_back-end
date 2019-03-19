@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: './plug',
+  baseUrl: './',
   devServer: {
     // open: true,
     // https: false,
