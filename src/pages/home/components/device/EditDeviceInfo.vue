@@ -1,22 +1,65 @@
 <template>
   <div class="editDeviceInfo">
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
-        <el-form-item label="设备编号" prop="deviceID">
-            <el-input v-model.number="ruleForm.deviceID" autocomplete="off" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="厂商编号" prop="manufacturerID">
-            <el-input v-model.number="ruleForm.manufacturerID" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="设备 MAC" prop="deviceMAC">
-            <el-input v-model="ruleForm.deviceMAC" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="版本 ID" prop="versionID">
-            <el-input v-model.number="ruleForm.versionID" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
-        </el-form-item>
+    <el-form
+      :model="ruleForm"
+      status-icon
+      :rules="rules"
+      ref="ruleForm"
+      label-width="100px"
+    >
+      <el-form-item
+        label="设备编号"
+        prop="deviceID"
+      >
+        <el-input
+          v-model.number="ruleForm.deviceID"
+          autocomplete="off"
+          disabled
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="厂商编号"
+        prop="manufacturerID"
+      >
+        <el-input
+          v-model.number="ruleForm.manufacturerID"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="设备 MAC"
+        prop="deviceMAC"
+      >
+        <el-input
+          v-model="ruleForm.deviceMAC"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="版本 ID"
+        prop="versionID"
+      >
+        <el-input
+          v-model.number="ruleForm.versionID"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item
+        label="设备地址"
+        prop="deviceAddr"
+      >
+        <el-input
+          v-model="ruleForm.deviceAddr"
+          autocomplete="off"
+        ></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button
+          type="primary"
+          @click="submitForm('ruleForm')"
+        >提交</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
+      </el-form-item>
     </el-form>
   </div>
 </template>
@@ -27,35 +70,40 @@ export default {
   name: "EditDeviceInfo",
   components: {},
   props: [
-    "device_id",
+    'device_id',
     'manufacturer_id',
     'device_mac',
-    'version_id'
-    ],
-   data() {
+    'version_id',
+    'device_addr'
+  ],
+  data () {
     var checkDeviceID = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("设备编号不能为空"));
+      } else {
+        callback();
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          callback();
-        }
-      }, 100);
+      // setTimeout(() => {
+      //   if (!Number.isInteger(value)) {
+      //     callback(new Error("请输入数字值"));
+      //   } else {
+      //     callback();
+      //   }
+      // }, 100);
     };
     var checkManufacturerID = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("厂商编号不能为空"));
+      } else {
+        callback();
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          callback();
-        }
-      }, 100);
+      // setTimeout(() => {
+      //   if (!Number.isInteger(value)) {
+      //     callback(new Error("请输入数字值"));
+      //   } else {
+      //     callback();
+      //   }
+      // }, 100);
     };
     var checkDeviceMAC = (rule, value, callback) => {
       if (value === "") {
@@ -64,25 +112,34 @@ export default {
         callback();
       }
     };
-
+    var checkDeviceAddr = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("设备地址不能为空"));
+      } else {
+        callback();
+      }
+    };
     var checkVersionID = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("版本编号不能为空"));
+      } else {
+        callback();
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          callback();
-        }
-      }, 100);
+      // setTimeout(() => {
+      //   if (!Number.isInteger(value)) {
+      //     callback(new Error("请输入数字值"));
+      //   } else {
+      //     callback();
+      //   }
+      // }, 100);
     };
     return {
       ruleForm: {
         deviceID: "",
         deviceMAC: "",
         manufacturerID: "",
-        versionID:"",
+        versionID: "",
+        deviceAddr: ""
       },
       rules: {
         deviceID: [
@@ -90,33 +147,37 @@ export default {
         ],
         deviceMAC: [{ validator: checkDeviceMAC, trigger: "blur" }],
         manufacturerID: [{ validator: checkManufacturerID, trigger: "blur" }],
-        versionID: [{ validator:checkVersionID, trigger:"blur"}]
+        versionID: [{ validator: checkVersionID, trigger: "blur" }],
+        deviceAddr: [{ validator: checkDeviceAddr, trigger: "blur" }],
       }
     };
   },
   watch: {
-    device_id(){
+    device_id () {
       this.ruleForm.deviceID = this.device_id
       this.ruleForm.manufacturerID = this.manufacturer_id
       this.ruleForm.deviceMAC = this.device_mac
       this.ruleForm.versionID = this.version_id
+      this.ruleForm.deviceAddr = this.device_addr
     }
   },
-  created(){
+  created () {
     this.ruleForm.manufacturerID = this.manufacturer_id
     this.ruleForm.deviceID = this.device_id
     this.ruleForm.deviceMAC = this.device_mac
     this.ruleForm.versionID = this.version_id
+    this.ruleForm.deviceAddr = this.device_addr
   },
   methods: {
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let params = {
             deviceID: this.ruleForm.deviceID,
             deviceMAC: this.ruleForm.deviceMAC,
             versionID: this.ruleForm.versionID,
-            manufacturerID: this.ruleForm.manufacturerID
+            manufacturerID: this.ruleForm.manufacturerID,
+            deviceAddr: this.ruleForm.deviceAddr
           };
           store
             .dispatch("deviceRegister/putDeviceRegisterInfo", params)
@@ -134,10 +195,11 @@ export default {
         }
       });
     },
-    resetForm() {
-    this.ruleForm.manufacturerID = ''
-    this.ruleForm.deviceMAC = ''
-    this.ruleForm.versionID = ''
+    resetForm () {
+      this.ruleForm.manufacturerID = ''
+      this.ruleForm.deviceMAC = ''
+      this.ruleForm.versionID = ''
+      this.ruleForm.deviceAddr = ''
     }
   }
 };
