@@ -58,6 +58,10 @@ export default {
     successRegister,
     setUserInfo
   },
+  created () {
+    // 重新渲染该组件，从头开始填写注册信息
+    this.active = 0;
+  },
   data () {
     return {
       // 设置账户登录信息
