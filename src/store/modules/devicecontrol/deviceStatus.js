@@ -201,7 +201,7 @@ const state = {
   //     tag: '公司'
   //   }
   // ],
-  deviceStatus: {},
+  deviceStatus: [],
   pageSize: 11, //分页器每页展示的数量
   deviceStatusCurrentPage: 1 // 默认当前页
 }
