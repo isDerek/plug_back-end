@@ -1,34 +1,48 @@
 <template>
   <div class="steps">
-    <el-steps :active="active" finish-status="success" class="steps__header">
-        <el-step title="设置登录账号"></el-step>
-        <el-step title="填写账号信息"></el-step>
-        <el-step title="注册成功"></el-step>
+    <el-steps
+      :active="active"
+      finish-status="success"
+      class="steps__header"
+    >
+      <el-step title="设置登录账号"></el-step>
+      <el-step title="填写账号信息"></el-step>
+      <el-step title="注册成功"></el-step>
     </el-steps>
-    <set-user-login v-if="this.active == 0"
-    ref="setUserLogin"
-    :passwordDiffer= this.passwordDiffer
-    :usernameNull= this.usernameNull
-    :passwordNull= this.passwordNull 
-    :confirmPasswordNull= this.confirmPasswordNull
-    :commitUsername= this.commitUsername
-    :commitPassword= this.commitPassword
-    :commitConfirmPassword = this.commitConfirmPassword
-    :usernameError = this.usernameError
-    :passwordError = this.passwordError
+    <set-user-login
+      v-if="this.active == 0"
+      ref="setUserLogin"
+      :passwordDiffer=this.passwordDiffer
+      :usernameNull=this.usernameNull
+      :passwordNull=this.passwordNull
+      :confirmPasswordNull=this.confirmPasswordNull
+      :commitUsername=this.commitUsername
+      :commitPassword=this.commitPassword
+      :commitConfirmPassword=this.commitConfirmPassword
+      :usernameError=this.usernameError
+      :passwordError=this.passwordError
     />
-    <set-user-info v-if="this.active ==1"
-    ref="setUserInfo"
-    :phoneNull = this.phoneNull
-    :emailNull = this.emailNull
-    :commitPhone = this.commitPhone
-    :commitEmail = this.commitEmail
-    :phoneError = this.phoneError
-    :emailError = this.emailError
+    <set-user-info
+      v-if="this.active ==1"
+      ref="setUserInfo"
+      :phoneNull=this.phoneNull
+      :emailNull=this.emailNull
+      :commitPhone=this.commitPhone
+      :commitEmail=this.commitEmail
+      :phoneError=this.phoneError
+      :emailError=this.emailError
     />
-    <success-register v-if="this.active ==3"/>
-    <el-button v-if="this.active!==3" style="margin-top: 12px;" @click="next">下一步</el-button>
-    <el-button v-if="this.active ==3" style="margin-top: 12px;" @click="registerSuccess">完成</el-button>
+    <success-register v-if="this.active ==3" />
+    <el-button
+      v-if="this.active!==3"
+      style="margin-top: 12px;"
+      @click="next"
+    >下一步</el-button>
+    <el-button
+      v-if="this.active ==3"
+      style="margin-top: 12px;"
+      @click="registerSuccess"
+    >完成</el-button>
   </div>
 </template>
 
@@ -44,7 +58,7 @@ export default {
     successRegister,
     setUserInfo
   },
-  data() {
+  data () {
     return {
       // 设置账户登录信息
       usernameError: false,
@@ -69,7 +83,7 @@ export default {
     };
   },
   methods: {
-    next() {
+    next () {
       if (this.active === 0) {
         this.setUserLogin();
       } else if (this.active === 1) {
@@ -77,12 +91,12 @@ export default {
       }
     },
     // 注册成功，重新刷新整个页面，会有一瞬间的空白页
-    registerSuccess() {
+    registerSuccess () {
       location.reload();
     },
 
     // 设置登录账户上传参数绑定的函数，对参数进行校验回传给设置登录账户组件
-    setUserLogin() {
+    setUserLogin () {
       this.usernameNull = false;
       this.passwordNull = false;
       this.confirmPasswordNull = false;
@@ -146,13 +160,13 @@ export default {
         // 去服务区查询用户名是否已经存在,仍然保留在当前组件页面
         store
           .dispatch("user/getUsername", userInfo)
-          .then(() => {})
+          .then(() => { })
           .catch(() => {
             this.active = 1;
           });
       }
     },
-    setUserInfo() {
+    setUserInfo () {
       this.emailError = false;
       this.phoneError = false;
       this.emailNull = false;
@@ -187,7 +201,7 @@ export default {
           .then(() => {
             this.active = 3;
           })
-          .catch(() => {});
+          .catch(() => { });
       }
     }
   }
