@@ -46,12 +46,6 @@
       >
       </el-table-column>
       <el-table-column
-        prop="time_run"
-        label="运行时间"
-        width="100"
-      >
-      </el-table-column>
-      <el-table-column
         prop="time_stop"
         label="结束时间"
         width="120"
@@ -156,8 +150,7 @@ export default {
       let nowTime = new Date()
       let nowTimeStr = this.formatDate(nowTime, 'yyyy-MM-dd hh:mm')
       row.time_start = nowTimeStr
-      row.time_run = '正在运行'
-      row.time_stop = 'Null'
+      row.time_stop = ''
       row.status = '在线'
       let params = {
         status: "在线",
