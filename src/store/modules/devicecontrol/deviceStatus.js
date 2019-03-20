@@ -1,5 +1,6 @@
 import { getAllDeviceStatusInfo } from '../../../api/getAllDeviceStatusInfo'
 import { STATUS_EVENT } from '../../mutation-types'
+import { putDeviceStatusInfo } from '../../../api/putDeviceStatusInfo'
 const state = {
   // deviceStatus: [
   //   {
@@ -218,11 +219,26 @@ const actions = {
           reject()
         })
     })
+  },
+  putDeviceStatusInfo({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      putDeviceStatusInfo(data)
+        .then(res => {
+          commit(STATUS_EVENT.UPDATE_DEVICEINFO_STATUS, res)
+          resolve()
+        })
+        .catch(() => {
+          reject()
+        })
+    })
   }
 }
 
 const mutations = {
   [STATUS_EVENT.CHECK_ALL_DEVICE_STATUS](state, data) {
+    state.deviceStatus = Object.assign([], state.deviceStatus, data)
+  },
+  [STATUS_EVENT.UPDATE_DEVICEINFO_STATUS](state, data) {
     state.deviceStatus = Object.assign([], state.deviceStatus, data)
   }
 }
