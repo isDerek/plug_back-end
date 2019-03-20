@@ -51,15 +51,16 @@
     </div>
     <div class="deviceRegister__Table">
       <el-table
-        border
         :data="deviceRegister"
         style="width: 100%;height: 91%"
+        align="center"
       >
         <el-table-column
           sortable
           prop="device_id"
           label="设备编号"
           width="100"
+          align="center"
         >
         </el-table-column>
         <el-table-column
@@ -67,6 +68,7 @@
           prop="version_id"
           label="设备版本编号"
           width="150"
+          align="center"
         >
         </el-table-column>
         <el-table-column
@@ -74,36 +76,41 @@
           prop="manufacturer_id"
           label="厂商编号"
           width="100"
+          align="center"
         >
         </el-table-column>
         <el-table-column
           prop="device_addr"
           label="设备地址"
           width="200"
+          align="center"
         >
         </el-table-column>
         <el-table-column
           prop="device_mac"
           label="设备 MAC"
           width="120"
+          align="center"
         >
         </el-table-column>
         <el-table-column
           prop="create_time"
           label="创建时间"
           width="150"
+          align="center"
         >
         </el-table-column>
         <el-table-column
           prop="loseTime"
           label="失效时间"
           width="150"
+          align="center"
         >
         </el-table-column>
         <el-table-column
-          fixed="right"
           label="操作"
           width="120"
+          align="center"
         >
           <template slot-scope="scope">
             <el-button

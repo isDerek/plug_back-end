@@ -16,27 +16,30 @@
       ></el-button>
     </div>
     <el-table
-      border
       :data="tableData"
       style="width: 100%;height:82%"
+      align="center"
     >
       <el-table-column
         prop="device_id"
         label="设备 ID"
         sortable
         width="100"
+        align="center"
       >
       </el-table-column>
       <el-table-column
         prop="ip_address"
         label="IP 地址"
         width="150"
+        align="center"
       >
       </el-table-column>
       <el-table-column
         prop="mac_id"
         label="MAC 地址"
         width="150"
+        align="center"
       >
       </el-table-column>
       <el-table-column
@@ -44,25 +47,28 @@
         label="厂商编号"
         sortable
         width="100"
+        align="center"
       >
       </el-table-column>
       <el-table-column
         prop="device_addr"
         label="设备运行地址"
         width="200"
+        align="center"
       >
       </el-table-column>
       <el-table-column
         prop="time_start"
         label="开始时间"
-        sortable='custom'
         width="120"
+        align="center"
       >
       </el-table-column>
       <el-table-column
         prop="time_stop"
         label="结束时间"
         width="120"
+        align="center"
       >
       </el-table-column>
       <el-table-column
@@ -72,6 +78,7 @@
         :filters="[{ text: '离线', value: '离线' }, { text: '在线', value: '在线' }]"
         :filter-method="filterTag"
         filter-placement="bottom-end"
+        align="center"
       >
         <template slot-scope="scope">
           <el-tag
@@ -81,9 +88,9 @@
         </template>
       </el-table-column>
       <el-table-column
-        fixed="right"
         label="操作"
-        width="100"
+        width="90"
+        align="center"
       >
         <template slot-scope="scope">
           <el-button
