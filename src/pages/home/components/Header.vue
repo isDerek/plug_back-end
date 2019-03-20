@@ -6,7 +6,7 @@
         alt=""
         class="header__left_img"
       >
-      <p class="header__left_title">基于前后端分离的后台管控系统</p>
+      <p class="header__left_title">路灯监测系统</p>
     </div>
     <div class="header__right">
       <div class="header__right__user-title">

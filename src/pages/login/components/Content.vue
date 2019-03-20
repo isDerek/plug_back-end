@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="content__user">
-      <p class="content__user_title">基于前后端分离的后台管控系统</p>
+      <p class="content__user_title">路灯监测系统</p>
       <div class="content__user_form">
         <span
           v-show="userStatus === 'invalid'"
