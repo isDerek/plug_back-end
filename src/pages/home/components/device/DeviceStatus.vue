@@ -27,7 +27,7 @@
       </el-table-column>
       <el-table-column
         prop="vendor_id"
-        label="运营商"
+        label="厂商编号"
         sortable
         width="100"
       >
