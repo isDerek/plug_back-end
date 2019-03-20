@@ -35,7 +35,7 @@
       <el-table-column
         prop="device_addr"
         label="设备运行地址"
-        width="100"
+        width="200"
       >
       </el-table-column>
       <el-table-column
