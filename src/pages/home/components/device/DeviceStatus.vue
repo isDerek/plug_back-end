@@ -136,10 +136,9 @@ export default {
   methods: {
     filterDeviceHandler () {
       let params = {
-        manufacturerID: this.inputMID,
         deviceID: this.inputDID
       }
-      // this.$store.dispatch('deviceRegister/getFilterDeviceRegisterInfo', params)
+      this.$store.dispatch('deviceStatus/getFilterDeviceStatusInfo', params)
     },
     formatDate (date, fmt) {
       if (/(y+)/.test(fmt)) {

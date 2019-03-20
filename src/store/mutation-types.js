@@ -20,5 +20,6 @@ export const STATUS_EVENT = {
   FILTER_ALL_DEVICEINFO_REGISTER_FAIL: 'filter_all_deviceInfo_register_fail',
   DELETE_DEVICEINFO_REGISTER: 'delete_deviceInfo_register',
   CHECK_ALL_DEVICE_STATUS: 'check_all_device_status',
-  UPDATE_DEVICEINFO_STATUS: 'update_deviceInfo_Status'
+  UPDATE_DEVICEINFO_STATUS: 'update_deviceInfo_Status',
+  FILTER_DEVICEINFO_STATUS: 'filter_deviceInfo_status'
 }
