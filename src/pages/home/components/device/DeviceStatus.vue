@@ -1,9 +1,24 @@
 <template>
   <div class="deviceStatus">
+    <div class="deviceStatus__header">
+      <div class="deviceStatus__header__ID">
+        <span class="deviceStatus__header__ID_text">设备 ID</span>
+        <el-input
+          v-model="inputDID"
+          placeholder="请输入内容"
+          class="deviceStatus__header__ID_input"
+        ></el-input>
+      </div>
+      <el-button
+        icon="el-icon-search"
+        circle
+        @click="filterHandler"
+      ></el-button>
+    </div>
     <el-table
       border
       :data="tableData"
-      style="width: 100%;height:90%"
+      style="width: 100%;height:85%"
     >
 
       <el-table-column
@@ -201,5 +216,34 @@ export default {
 .deviceStatus {
   width: 100%;
   height: 100%;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 10%;
+
+    &__register {
+      padding-left: 0.1rem;
+    }
+
+    &__ID {
+      width: 30%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      &_text {
+        padding-right: 0.2rem;
+      }
+
+      &_input {
+        width: 50%;
+        padding-right: 0.3rem;
+      }
+    }
+  }
 }
 </style>

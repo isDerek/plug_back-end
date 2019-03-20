@@ -203,7 +203,7 @@ const state = {
   //   }
   // ],
   deviceStatus: [],
-  pageSize: 11, //分页器每页展示的数量
+  pageSize: 9, //分页器每页展示的数量
   deviceStatusCurrentPage: 1 // 默认当前页
 }
 
