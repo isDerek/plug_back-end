@@ -88,7 +88,7 @@ export default {
       }
 
       &__complate {
-        height: 90%;
+        height: 93%;
         width: 100%;
       }
     }

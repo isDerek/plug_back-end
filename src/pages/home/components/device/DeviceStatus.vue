@@ -12,15 +12,14 @@
       <el-button
         icon="el-icon-search"
         circle
-        @click="filterHandler"
+        @click="filterDeviceHandler"
       ></el-button>
     </div>
     <el-table
       border
       :data="tableData"
-      style="width: 100%;height:85%"
+      style="width: 100%;height:82%"
     >
-
       <el-table-column
         prop="device_id"
         label="设备 ID"
@@ -118,7 +117,9 @@ export default {
     this.$store.dispatch('deviceStatus/getAllDeviceStatusInfo')
   },
   data () {
-    return {};
+    return {
+      inputDID: "",
+    };
   },
   computed: {
     ...mapGetters("deviceStatus", {
@@ -126,6 +127,13 @@ export default {
     })
   },
   methods: {
+    filterDeviceHandler () {
+      let params = {
+        manufacturerID: this.inputMID,
+        deviceID: this.inputDID
+      }
+      // this.$store.dispatch('deviceRegister/getFilterDeviceRegisterInfo', params)
+    },
     formatDate (date, fmt) {
       if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(

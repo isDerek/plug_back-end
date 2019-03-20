@@ -53,8 +53,7 @@
       <el-table
         border
         :data="deviceRegister"
-        style="width: 100%;height: 100%"
-        height=100%
+        style="width: 100%;height: 91%"
       >
         <el-table-column
           sortable
@@ -122,19 +121,23 @@
           </template>
         </el-table-column>
       </el-table>
+      <deviceRegPagination />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import DeviceRegisterTmp from "./DeviceRegisterTmp"
 import EditDeviceInfo from "./EditDeviceInfo"
+import deviceRegPagination from "../../../common/deviceRegPagination";
 export default {
   name: "DeviceRegister",
   components: {
     DeviceRegisterTmp,
-    EditDeviceInfo
+    EditDeviceInfo,
+    deviceRegPagination
   },
   created () {
     this.$store.dispatch("deviceRegister/getAllDeviceRegisterInfo");
@@ -157,6 +160,9 @@ export default {
   computed: {
     ...mapState("deviceRegister", {
       deviceRegister: state => state.deviceRegister
+    }),
+    ...mapGetters("deviceRegister", {
+      deviceRegister: "getRegisterStatus"
     })
   },
   methods: {
@@ -250,7 +256,7 @@ export default {
   }
 
   &__Table {
-    display: flex;
+    // display: flex;
     height: 90%;
   }
 }
