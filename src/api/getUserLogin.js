@@ -3,8 +3,10 @@ import { ERR_TYPE, PlugError } from '../utils/PlugError'
 import { msgId } from '../utils/toolFunc'
 export async function getUserLogin(params) {
   const url = 'api/v1/getUserLogin'
-  let resp = await axios.get(url, {
-    params: {
+  let resp = await axios({
+    method: 'post',
+    url: url,
+    data: {
       username: params.username,
       password: params.password,
       msgId: msgId
