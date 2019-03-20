@@ -187,7 +187,7 @@ const state = {
   //     deviceTimer: '1天',
   //     vendor: 'xxxx有限公司',
   //     deviceAddress: 'xxxx',
-  //     tag: '公司'
+  //     tag: '123'
   //   },
   //   {
   //     date: '2016-05-03',

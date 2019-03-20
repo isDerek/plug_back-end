@@ -29,7 +29,7 @@
         prop="vendor_id"
         label="运营商"
         sortable
-        width="250"
+        width="100"
       >
       </el-table-column>
       <el-table-column
@@ -45,21 +45,21 @@
         width="150"
       >
       </el-table-column>
-      <!-- <el-table-column
-        prop="tag"
-        label="标签"
+      <el-table-column
+        prop="status"
+        label="设备状态"
         width="120"
-        :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]"
+        :filters="[{ text: '离线', value: '离线' }, { text: '在线', value: '在线' }]"
         :filter-method="filterTag"
         filter-placement="bottom-end"
       >
         <template slot-scope="scope">
           <el-tag
-            :type="scope.row.tag === '家' ? 'primary' : 'success'"
+            :type="scope.row.status === '离线' ? 'info' : 'success'"
             disable-transitions
-          >{{scope.row.tag}}</el-tag>
+          >{{scope.row.status}}</el-tag>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
     <pagination />
   </div>
@@ -86,13 +86,9 @@ export default {
   },
   methods: {
     filterTag (value, row) {
-      return row.tag === value;
+      return row.status === value;
     },
     filterHandler (value, row, column) {
-      // console.log(this.$store.state.device.deviceStatus);
-      // let deviceStatusFilter = this.$store.state.device.deviceStatus.filter((value)=>{
-      //   return this.$store.state.device.deviceStatus;
-      // })
       const property = column["property"];
       return row[property] === value;
     }
