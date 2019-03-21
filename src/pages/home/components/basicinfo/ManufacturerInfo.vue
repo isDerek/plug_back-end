@@ -71,13 +71,6 @@
         >
         </el-table-column>
         <el-table-column
-          prop="agency_id"
-          label="经销商序列号"
-          width="180"
-          align="center"
-        >
-        </el-table-column>
-        <el-table-column
           prop="notify_address"
           label="推送地址"
           width="180"

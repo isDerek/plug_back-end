@@ -105,7 +105,6 @@ export default {
       return state.deviceRegister.length //设备状态数据总数量
     },
     getRegisterStatus: state => {
-      console.log(state.deviceRegister.length)
       let startIndex = (state.deviceRegisterCurrentPage - 1) * state.pageSize
       let endIndex = state.deviceRegisterCurrentPage * state.pageSize
       return state.deviceRegister.slice(startIndex, endIndex)

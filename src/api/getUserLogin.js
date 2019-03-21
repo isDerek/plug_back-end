@@ -14,7 +14,7 @@ export async function getUserLogin(params) {
   })
   let respData = resp.data
   // 1 代表在线状态, 校验是否为该会话响应
-  if (respData.status === '1' && respData.msgId === msgId) {
+  if (respData.status === 1 && respData.msgId === msgId) {
     return respData
   } else {
     throw new PlugError(ERR_TYPE.API_RESP_ERR, respData.data.errMsg)
