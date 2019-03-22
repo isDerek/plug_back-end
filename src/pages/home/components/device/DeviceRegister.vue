@@ -94,6 +94,7 @@
         >
         </el-table-column>
         <el-table-column
+          sortable
           prop="create_time"
           label="创建时间"
           width="150"
@@ -101,6 +102,7 @@
         >
         </el-table-column>
         <el-table-column
+          sortable
           prop="update_time"
           label="最新更新时间"
           width="150"
