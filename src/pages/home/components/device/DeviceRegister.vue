@@ -101,8 +101,8 @@
         >
         </el-table-column>
         <el-table-column
-          prop="loseTime"
-          label="失效时间"
+          prop="update_time"
+          label="最新更新时间"
           width="150"
           align="center"
         >
